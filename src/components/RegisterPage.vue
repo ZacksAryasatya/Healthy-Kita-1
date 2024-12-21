@@ -3,7 +3,6 @@
         <div class="card shadow-sm" style="width: 24rem; border-radius: 10px;">
             <div class="card-body">
                 <h3 class="card-title text-center mb-4">Sign Up</h3>
-                <form>
                     <div class="mb-3">
                         <label for="name" class="form-label">Full Name</label>
                         <input type="text" id="name" class="form-control" name="username" placeholder="John Doe" v-model="userData.username"
@@ -25,7 +24,6 @@
                             placeholder="Confirm password" name="confirmpw" v-model="userData.confirmpw" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100 animate" @click="registerData">Register</button>
-                </form>
                 <div class="text-center mt-3">
                     <p id="login1">Already have an account? </p><router-link to="/login"
                             class="text-success text-decoration-none" id="login">Sign in here</router-link>
@@ -34,14 +32,12 @@
         </div>
     </div>
 </template>
-
 <script>
 import axios from 'axios';
 import textFile from '!!raw-loader!./file.txt';
 export default {
     name: 'RegisterPage',
     data() {
-        
         return {
             arr: textFile,
             userData: {
@@ -54,7 +50,6 @@ export default {
     },
     methods: {
         registerData() {
-            console.log(this.arr);
             const { username, email, password, confirmpw } = this.userData;
             if (!username || !password || !email || !confirmpw){
                 alert("Please fill out all required fields.");
@@ -79,7 +74,6 @@ export default {
     },
 }
 </script>
-
 <style scoped>
 #login1 {
     color: black;
