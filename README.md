@@ -1,24 +1,8 @@
-# Environmental Sustainability
+[view logo](https://res.cloudinary.com/davsvplok/image/upload/v1734775173/sohfxqjnaplovqi2vk68.png)
 
-## Project setup
-```
-npm install
-```
+this is App base dinacom project named Healthy Kita
+base on dinacom project for the theme Health and Well-being for the Next Generation
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Our mission is monitoring user Mental Health and bringing together between humans to discuss about mental health
+outside, we have another missions for Physical Health focussed disease protect without food recommended,forum discuss and private disscus with professional medis worker such doctor,psychiatrist,therapist focussed relaxing mental etc
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
