@@ -45,12 +45,13 @@
 </template>
 
 <script>
-import textFile from '!!raw-loader!./file.txt';
+// import textFile from '!!raw-loader!./file.txt';
 export default {
     name: 'LoginPage',
     data() {
+        // arr: textFile;
         return {
-             arr: textFile
+            
         }
     }
 }

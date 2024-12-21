@@ -5,7 +5,7 @@ import RegisterPage from '@/components/RegisterPage.vue'
 const routes = [
     {
         path: '/',
-        redirect: 'Login'
+        redirect: 'Register'
     },
     {
         path: '/login',
