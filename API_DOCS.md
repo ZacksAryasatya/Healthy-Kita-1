@@ -13,4 +13,7 @@ response: {message}
 BODY property: {username,password}
 response: {message}
 
+header: [HEADER] named token
+standard for token is JWT
+
 
