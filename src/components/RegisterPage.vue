@@ -29,6 +29,8 @@
                             class="text-success text-decoration-none" id="login">Sign in here</router-link>
                 </div>
             </div>
+            <h3 class="text-center" v-if="success">{{ response.message }}</h3>
+            <h3 class="text-center" v-if="error">{{ response.message }}</h3>
         </div>
     </div>
 </template>
@@ -45,11 +47,15 @@ export default {
                 email: "",
                 password: "",
                 confirmpw: ""
-            }
+            },
+            success: false,
+            error: false
         };
     },
     methods: {
         registerData() {
+            this.success = false;
+            this.error = false;
             const { username, email, password, confirmpw } = this.userData;
             if (!username || !password || !email || !confirmpw){
                 alert("Please fill out all required fields.");
@@ -64,11 +70,19 @@ export default {
                 email: email,
                 password: password
             })
-            .then(function(response) {
-                console.log("debugging", response);
+            .then((response) => {
+                console.log("debugging", response.data);
+                this.success = true;
+                this.userData = {
+                    username: "",
+                    email: "",
+                    password: "",
+                    confirmpw: ""
+                }
             })
-            .catch(function(error) {
+            .catch((error) => {
                 console.log(error);
+                this.error = true;
             });   
         }
     },
