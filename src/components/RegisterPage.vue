@@ -23,20 +23,25 @@
                         <input type="password" id="confirmPassword" class="form-control"
                             placeholder="Confirm password" name="confirmpw" v-model="userData.confirmpw" required>
                     </div>
-                    <button type="submit" class="btn btn-success w-100 animate" @click="registerData">Register</button>
+                    <button type="submit" class="btn btn-success w-100 animate" @click="registerData" :disabled="loading">Register</button>
                 <div class="text-center mt-3">
                     <p id="login1">Already have an account? </p><router-link to="/login"
                             class="text-success text-decoration-none" id="login">Sign in here</router-link>
                 </div>
             </div>
-            <h3 class="text-center" v-if="success">{{ response.message }}</h3>
-            <h3 class="text-center" v-if="error">{{ response.message }}</h3>
+            <div v-if="loading" class="text-center">
+                <p>harap tunggu...</p>
+            </div>
+            <h3 class="text-center" v-if="success && !loading">{{ response.message }}</h3>
+            <h3 class="text-center" v-if="error && !loading">{{ response.message }}</h3>
         </div>
     </div>
 </template>
+
 <script>
 import axios from 'axios';
 import textFile from '!!raw-loader!./file.txt';
+
 export default {
     name: 'RegisterPage',
     data() {
@@ -49,45 +54,62 @@ export default {
                 confirmpw: ""
             },
             success: false,
-            error: false
+            error: false,
+            loading: false,
+            response: {}
         };
     },
     methods: {
         registerData() {
             this.success = false;
             this.error = false;
+            this.loading = true;  // Start loading
             const { username, email, password, confirmpw } = this.userData;
             if (!username || !password || !email || !confirmpw){
                 alert("Please fill out all required fields.");
+                this.loading = false;  // Stop loading if validation fails
                 return;
             }
             if (password !== confirmpw) {
                 alert("Passwords do not match.");
+                this.loading = false;  // Stop loading if passwords don't match
                 return;
             }
             axios.post(`${this.arr}/api/signup/user`, {
                 username: username,
                 email: email,
-                password: password
-            })
-            .then((response) => {
-                console.log("debugging", response.data);
+                password: password,  
+            },{withCredentials:true
+})
+            
+            .then(async (response) => {
                 this.success = true;
+                this.response = response.data;
                 this.userData = {
                     username: "",
                     email: "",
                     password: "",
                     confirmpw: ""
-                }
+                };
+                this.loading = false;  // Stop loading when request is successful
+
+               const encKeyFetch = await axios.get(`${arr}/oauth/encKey/get`,{
+                withCredentials: true
+               })
+               console.log(encKeyFetch.data) //please store encKeyFetch at indexedDB, to success, please debugging before store
+
+
             })
             .catch((error) => {
                 console.log(error);
                 this.error = true;
+                this.loading = false;  // Stop loading if there's an error
             });   
         }
     },
 }
 </script>
+
 <style scoped>
 #login1 {
     color: black;
