@@ -41,7 +41,7 @@
 <script>
 import axios from 'axios';
 import textFile from '!!raw-loader!./file.txt';
-
+let arr;
 export default {
     name: 'RegisterPage',
     data() {
@@ -93,11 +93,10 @@ export default {
                 };
                 this.loading = false;  // Stop loading when request is successful
 
-               const encKeyFetch = await axios.get(`${arr}/oauth/encKey/get`,{
+                const encKeyFetch = await axios.get(`${arr}/oauth/encKey/get`,{
                 withCredentials: true
-               })
+                })
                console.log(encKeyFetch.data) //please store encKeyFetch at indexedDB, to success, please debugging before store
-
 
             })
             .catch((error) => {

@@ -12,22 +12,22 @@
                     </p>
                 </div>
 
-                <form>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" required
-                            placeholder="youremail@example.com" />
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" required placeholder="Enter your name"
+                            v-model="loginData.username" />
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" required
-                            placeholder="Enter your password" />
+                            placeholder="Enter your password" v-model="loginData.password" />
                     </div>
 
                     <div class="mb-3 d-flex justify-content-between align-items-center">
                         <div class="form-check me-1">
-                            <input class="form-check-input border-success" type="checkbox" id="remember-me"  value="true"/>
+                            <input class="form-check-input border-success cekboks" type="checkbox" id="remember-me"
+                                value="true" v-model="loginData.rememberMe" />
                             <label class="form-check-label" for="remember-me">
                                 Remember me
                             </label>
@@ -35,25 +35,65 @@
                         <a href="#" class="text-success text-decoration-none">Forgot password?</a>
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100 animate">
+                    <button type="submit" class="btn btn-success w-100 animate" @click="loginMethods">
                         Sign in
                     </button>
-                </form>
+                    <h3 class="text-center" v-if="success">berhasil</h3>
+                    <h3 class="text-center" v-if="error">error</h3>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-// import textFile from '!!raw-loader!./file.txt';
+import axios from 'axios';
+import textFile from '!!raw-loader!./file.txt';
 export default {
     name: 'LoginPage',
     data() {
-        // arr: textFile;
         return {
-            
+            arr: textFile,
+            loginData: {
+                username: "",
+                password: "",
+                rememberMe: false
+            },
+            success: false,
+            error: false,
+            response: {}
         }
-    }
+    },
+    methods: {
+        loginMethods() {
+            this.success = false;
+            this.error = false;
+            const { username, password, rememberMe } = this.loginData;
+            if (!username || !password) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+            axios.post(`${this.arr}/api/login/user`, {
+                username: username,
+                password: password,
+                remember: rememberMe
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            })
+                .then(response => {
+                    this.success = true;
+                    const { message } = response.data;
+                    alert(message);
+                })
+                .catch(error => {
+                    this.error = true;
+                    console.error("There was an error:", error);
+                });
+
+        }
+    },
 }
 </script>
 
@@ -68,5 +108,9 @@ export default {
 
 .animate:active {
     transform: scale(0.95);
+}
+
+.cekboks {
+    cursor: pointer;
 }
 </style>
