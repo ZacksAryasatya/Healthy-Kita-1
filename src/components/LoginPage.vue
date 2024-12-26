@@ -3,25 +3,25 @@
         <div class="card shadow-sm" style="max-width: 400px;">
             <div class="card-body p-4">
                 <div class="text-center mb-4">
-                    <h2 class="fw-bold">Sign in</h2>
+                    <h2 class="fw-bold">Login</h2>
                     <p class="text-muted">
-                        Or
+                        Atau
                         <router-link to="/register" class="text-success text-decoration-none">
-                            create a new account
+                            Buat Akun Baru
                         </router-link>
                     </p>
                 </div>
 
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" required placeholder="Enter your name"
+                        <input type="text" class="form-control" id="username" required placeholder="Masukkan nama mu"
                             v-model="loginData.username" />
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" required
-                            placeholder="Enter your password" v-model="loginData.password" />
+                            placeholder="Masukkan Password" v-model="loginData.password" />
                     </div>
 
                     <div class="mb-3 d-flex justify-content-between align-items-center">
@@ -32,11 +32,11 @@
                                 Remember me
                             </label>
                         </div>
-                        <a href="#" class="text-success text-decoration-none">Forgot password?</a>
+                        <a href="#" class="text-success text-decoration-none">Lupa password?</a>
                     </div>
 
                     <button type="submit" class="btn btn-success w-100 animate" @click="loginMethods">
-                        Sign in
+                        Login
                     </button>
                     <h3 class="text-center" v-if="success">berhasil</h3>
                     <h3 class="text-center" v-if="error">error</h3>
@@ -112,5 +112,9 @@ export default {
 
 .cekboks {
     cursor: pointer;
+}
+
+.card {
+    border-radius: 50px;
 }
 </style>

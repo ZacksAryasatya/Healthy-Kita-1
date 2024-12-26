@@ -1,32 +1,32 @@
 <template>
     <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #f4fdf4;">
-        <div class="card shadow-sm" style="width: 24rem; border-radius: 10px;">
+        <div class="card shadow-sm" style="width: 24rem; border-radius: 50px;">
             <div class="card-body">
-                <h3 class="card-title text-center mb-4">Sign Up</h3>
+                <h3 class="card-title text-center mb-4">Register</h3>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" class="form-control" name="username" placeholder="John Doe" v-model="userData.username"
+                        <label for="name" class="form-label">Nama Lengkap</label>
+                        <input type="text" id="name" class="form-control" name="username" placeholder="Masukkan nama mu" v-model="userData.username"
                             required>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
+                        <label for="email" class="form-label">Alamat Email</label>
                         <input type="email" id="email" class="form-control"
-                            placeholder="youremail@example.com" name="email" v-model="userData.email" required>
+                            placeholder="emailmu@example.com" name="email" v-model="userData.email" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" id="password" class="form-control"
-                            placeholder="Enter your password" name="password" v-model="userData.password" required>
+                            placeholder="Masukkan Password" name="password" v-model="userData.password" required>
                     </div>
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
                         <input type="password" id="confirmPassword" class="form-control"
-                            placeholder="Confirm password" name="confirmpw" v-model="userData.confirmpw" required>
+                            placeholder="Konfirmasi Password" name="confirmpw" v-model="userData.confirmpw" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100 animate" @click="registerData" :disabled="loading">Register</button>
                 <div class="text-center mt-3">
-                    <p id="login1">Already have an account? </p><router-link to="/login"
-                            class="text-success text-decoration-none" id="login">Sign in here</router-link>
+                    <p id="login1">Sudah punya akun? </p><router-link to="/login"
+                            class="text-success text-decoration-none" id="login">Login disini</router-link>
                 </div>
             </div>
             <div v-if="loading" class="text-center">
