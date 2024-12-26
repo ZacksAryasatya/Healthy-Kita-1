@@ -26,7 +26,7 @@ const routes = [
         component: ProfilePage,
     },
     {
-        path: 'profile/settings',
+        path: '/profile/settings',
         name: 'ProfileSettings',
         component: ProfileSettingsPage,
     },
