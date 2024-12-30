@@ -45,6 +45,7 @@
     </div>
 </template>
 
+
 <script>
 import axios from 'axios';
 import textFile from '!!raw-loader!./file.txt';
@@ -84,9 +85,14 @@ export default {
             })
                 .then(response => {
                     this.success = true;
-                    const { message } = response.data;
-                    alert(message);
-                })
+                    const { message,encKeyIv } = response.data
+                    let {key,iv} = encKeyIv
+
+                    key = key.data 
+                    iv = iv.data
+                    //please store key and iv this at indexedDB
+                     window.location.href = `http://localhost:8080/dashboard`
+               })
                 .catch(error => {
                     this.error = true;
                     console.error("There was an error:", error);
