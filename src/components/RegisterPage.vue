@@ -95,8 +95,31 @@ export default {
 
                 const encKeyFetch = await axios.get(`${arr}/oauth/encKey/get`,{
                 withCredentials: true
-                })
-               console.log(encKeyFetch.data) //please store encKeyFetch at indexedDB, to success, please debugging before store
+                });
+                const encKey = encKeyFetch.data.encKey;
+                const ivKey = encKeyFetch.data.ivKey;
+                const dbRequest = indexedDB.open('userKeysDB', 1);
+
+                dbRequest.onupgradeneeded = (event) => {
+                    let db = event.target.result;
+                    if (!db.objectStoreNames.contains('keys')) {
+                        db.createObjectStore('keys', { keyPath: 'id' });
+                    }
+                };
+                dbRequest.onsuccess = (event) => {
+                    const db = event.target.result;
+                    const transaction = db.transaction('keys', 'readwrite');
+                    const store = transaction.objectStore('keys');
+                    store.put({ id: 'encKey', value: encKey });
+                    store.put({ id: 'ivKey', value: ivKey });
+                    transaction.oncomplete = () => {
+                        console.log('encKey and ivKey stored successfully');
+                    };
+                };
+
+        dbRequest.onerror = (event) => {
+            console.error('Error on opening IndexedDB:', event.target.error);
+        };
 
             })
             .catch((error) => {
@@ -144,3 +167,5 @@ export default {
     transform: scale(0.95);
 }
 </style>
+
+
