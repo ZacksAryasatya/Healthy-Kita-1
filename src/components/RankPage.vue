@@ -43,7 +43,7 @@
                     </div>
                   </div>
                   <div class="dropdown-divider"></div>
-                  <a href="/rank" class="dropdown-item">Daftar Ranking</a>
+                  <a href="/profile/:username" class="dropdown-item">Profil</a>
                   <div class="dropdown-divider"></div>
                   <a href="/login" class="dropdown-item">Logout</a>
                 </div>
@@ -53,55 +53,123 @@
         </div>
       </div>
     </header>
-        <main class="profile-container">
-          <div class="header">
-            <div class="user-info">
-              
-              <div class="settings-dropdown">
-                <button class="settings-button" @click="toggleSettingsDropdown">
-                  <i class="fas fa-cog"></i>
-                </button>
-                <div v-if="isSettingsDropdownOpen" class="dropdown-content1">
-                  <a href="/profile/settings" class="dropdown-item1">Edit profile</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="profile-details">
-            <img :src="require('/src/assets/download (1).jpg')" alt="Logo" class="profile-picture" />
-            <div class="user-bio">
-                <span class="username">Nama Panggilan</span>
-              <span class="full-name">Nama Lengkap</span>
-              <span class="bio-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ea officiis omnis culpa magni maxime dolor.
-              </span>
-            </div>
-          </div>
-          <div class="profile-stats">
-            <div class="stat">
-              <span class="stat-number">1</span>
-              <span class="stat-label">Post</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">2</span>
-              <span class="stat-label">Followers</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">2</span>
-              <span class="stat-label">Following</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">1</span>
-              <span class="stat-label">Ranking</span>
-            </div>
-          </div>
-          <div class="tabs">
-            <div class="tab active">POSTS</div>
-          </div>
-          <div class="posts-section">
-            <img :src="require('/src/assets/download (1).jpg')" alt="Post Image" class="post-image" />
-          </div>
-        </main>
+    <main class="ranking">
+        <div class="ranking-container">
+        <h2 class="ranking-title">Top 10 Users</h2>
+        <table class="ranking-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>User</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="top-user">
+                    <td>1</td>
+                    <td>
+                        <div class="top-user-info">
+                            <img class="top-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Top User Avatar">
+                            <span class="top-user-name">User</span>
+                        </div>
+                    </td>
+                    <td>387</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">JamalTebet</span>
+                        </div>
+                    </td>
+                    <td>362</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">BudiDoremi</span>
+                        </div>
+                    </td>
+                    <td>315</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Ujang</span>
+                        </div>
+                    </td>
+                    <td>279</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Toto Jaksel</span>
+                        </div>
+                    </td>
+                    <td>263</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Burung PIpit</span>
+                        </div>
+                    </td>
+                    <td>217</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Iwan Bengkel</span>
+                        </div>
+                    </td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Ilham Bensin</span>
+                        </div>
+                    </td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Zaki INdomi</span>
+                        </div>
+                    </td>
+                    <td>90</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>
+                        <div class="avg-user-info">
+                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
+                            <span class="avg-user-name">Bintang kejora</span>
+                        </div>
+                    </td>
+                    <td>60</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </main>
+    
       </div>
     </body>
   </template>
@@ -113,7 +181,6 @@ export default {
     return {
       isProfileDropdownOpen: false,
       isMenuOpen: false,
-      isSettingsDropdownOpen: false,
     };
   },
   methods: {
@@ -123,12 +190,8 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    toggleSettingsDropdown() {
-      this.isSettingsDropdownOpen = !this.isSettingsDropdownOpen;
-    },
     handleClickOutside(event) {
       const profileDropdown = this.$el.querySelector(".user-profile");
-      const settingsDropdown = this.$el.querySelector(".settings-dropdown");
       const menuDropdown = this.$el.querySelector(".nav-wrapper");
       if (
         profileDropdown &&
@@ -136,13 +199,6 @@ export default {
         this.isProfileDropdownOpen
       ) {
         this.isProfileDropdownOpen = false;
-      }
-      if (
-        settingsDropdown &&
-        !settingsDropdown.contains(event.target) &&
-        this.isSettingsDropdownOpen
-      ) {
-        this.isSettingsDropdownOpen = false;
       }
       if (
         menuDropdown &&
@@ -278,7 +334,7 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 20px;
+  margin-top: 13px;
   pointer-events: none;
 }
 
@@ -346,90 +402,6 @@ body {
   background-color: #f1f1f1;
 }
 
-/* Profile Container */
-.profile-container {
-    position: relative;
-  width: 935px;
-  padding: 30px 20px;
-  margin: auto;
-}
-
-.profile-details {
-  display: flex;
-  margin-bottom: 20px;
-  align-items: center;
-}
-
-.profile-details .profile-picture {
-  width: 150px;
-  height: 150px;
-  margin-right: 30px;
-}
-
-.user-bio {
-  display: flex;
-  flex-direction: column;
-}
-.username {
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.full-name {
-font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.bio-text {
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-.settings-dropdown {
-  position: absolute;
-  display: inline-block;
-  top: 30px;
-  right: 10px;
-}
-
-.settings-button {
-    background: none;
-  border: none;
-  color: #188754;
-  font-size: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-.dropdown-content1 {
-    position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  z-index: 10;
-  min-width: 150px;
-  animation: fadeInSlideDown 0.3s ease-in-out forwards;
-}
-.dropdown-item1{
-    padding: 10px;
-  color: #188754;
-  text-decoration: none;
-  border-radius: 5px;
-  display: block;
-  transition: background-color 0.3s;
-}
-
-.dropdown-item1:hover {
-  background-color: #188754;
-  color: white;
-}
-/* Stats Section */
 .profile-stats {
   display: flex;
   justify-content: space-around;
@@ -451,46 +423,84 @@ font-weight: bold;
   color: #999;
 }
 
-/* Tabs Section */
-.tabs {
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 30px;
-}
+.ranking-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-.tab {
-  padding: 10px 0;
-  font-weight: bold;
-  cursor: pointer;
-  flex: 1;
-  text-align: center;
-}
+        .ranking-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-.tab.active {
-  border-bottom: 2px solid black;
-}
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-/* Posts Section */
-.posts-section {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+        .ranking-table th,
+        .ranking-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-.post-image {
-  width: 100%;
-  max-width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin: 10px;
-  transition: transform 0.3s ease;
-}
+        .ranking-table th {
+            /* background-color: #007bff; */
+            color: black;
+            font-weight: bold;
 
-.post-image:hover {
-  transform: scale(1.05);
-}
+        }
+
+        .ranking-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .top-user {
+            background-color: #ffc107;
+            font-weight: bold;
+        }
+
+        .top-user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        .top-user-name {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .avg-user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .avg-user-avatar {
+            width:40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        .avg-user-name {
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
 
 @keyframes fadeInSlideDown {
             from {
@@ -504,52 +514,7 @@ font-weight: bold;
             }
         }
 
-@media (max-width: 941px) {
-  .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-list {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background-color: #188754;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    animation: fadeInSlideDown 0.3s ease-in-out forwards;
-  }
-
-  .nav-list.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .profile-container {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .profile-details {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-details .profile-picture {
-    margin-bottom: 20px;
-
-  }
-  .settings-button{
-    margin-right: 15px;
-    margin-top: -5px;
-    
-  }
-
-}
-@media (max-width: 941px) {
+@media (max-width: 768px) {
   .container {
     flex-direction: row; 
     align-items: center; 
@@ -574,7 +539,7 @@ font-weight: bold;
         z-index: 100;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        
+        animation: fadeInSlideDown 0.3s ease-in-out forwards;
     }
 
     .nav-list.show {
@@ -606,7 +571,7 @@ font-weight: bold;
         margin-left: 0;
     }
     .dropdown-menu{
-        margin-top: 20px;
+        margin-top: 13px;
     }
 }
 .navbar {
@@ -616,5 +581,6 @@ font-weight: bold;
     top: 0;
     z-index: 100;
 }
+
   </style>  
   

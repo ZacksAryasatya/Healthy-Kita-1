@@ -4,6 +4,10 @@ import RegisterPage from '@/components/RegisterPage.vue'
 import HomePage from '@/components/HomePage.vue'
 import ProfilePage from '@/components/ProfilePage.vue'
 import ProfileSettingsPage from '@/components/ProfileSettingsPage.vue'
+import RankPage from '@/components/RankPage.vue'
+import ForgotPWPage from '@/components/ForgotPWPage.vue'
+import NewPWPage from '@/components/NewPWPage.vue'
+import QuizPage from '@/components/QuizPage.vue'
 
 const routes = [
     {
@@ -34,7 +38,28 @@ const routes = [
         path: '/home',
         name: 'Home',
         component: HomePage,
+    },
+    {
+        path: '/rank',
+        name: 'Rank',
+        component: RankPage,
+    },
+    {
+        path: '/forgotpw',
+        name: 'Forgot Password',
+        component: ForgotPWPage,
+    },
+    {
+        path: '/newpassword',
+        name: 'New Password',
+        component: NewPWPage,
+    },
+    {
+        path: '/quiz',
+        name: 'Quiz',
+        component: QuizPage,
     }
+
 ];
 
 const router = createRouter({
