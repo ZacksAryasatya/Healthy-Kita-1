@@ -8,7 +8,14 @@ import RankPage from '@/components/RankPage.vue'
 import ForgotPWPage from '@/components/ForgotPWPage.vue'
 import NewPWPage from '@/components/NewPWPage.vue'
 import QuizPage from '@/components/QuizPage.vue'
-
+import PostPage from '@/components/PostPage.vue'
+import QuizStart from '@/components/QuizStart.vue'
+import HalamanKhusus from '@/components/HalamanKhusus.vue'
+import DraftPage from '@/components/DraftPage.vue'
+import HasilAnalitik from '@/components/HasilAnalitik.vue'
+import NotificationPage from '@/components/NotificationPage.vue'
+import PostCommentPage from '@/components/PostCommentPage.vue'
+import PostingPage from '@/components/PostingPage.vue'
 const routes = [
     {
         path: '/',
@@ -45,7 +52,7 @@ const routes = [
         component: RankPage,
     },
     {
-        path: '/forgotpw',
+        path: '/forgotpassword',
         name: 'Forgot Password',
         component: ForgotPWPage,
     },
@@ -58,6 +65,46 @@ const routes = [
         path: '/quiz',
         name: 'Quiz',
         component: QuizPage,
+    },
+    {
+        path: '/view/post',
+        name: 'Post Page',
+        component: PostPage,
+    },
+    {
+        path: '/quiz/start',
+        name: 'QuizStart',
+        component: QuizStart,
+    },
+    {
+        path: '/khusus',
+        name: 'Halaman Khusus',
+        component: HalamanKhusus,
+    },
+    {
+        path: '/draft',
+        name: 'Draft Page',
+        component: DraftPage,
+    },
+    {
+        path:'/analisis',
+        name:'Hasil Analitik',
+        component: HasilAnalitik,
+    },
+    {
+        path:'/notification',
+        name:'Notification Page',
+        component: NotificationPage,
+    },
+    {
+        path:'/view/post/comment',
+        name:'Post Comment Page',
+        component: PostCommentPage,
+    },
+    {
+        path:'/posting',
+        name:'Posting Page',
+        component: PostingPage,
     }
 
 ];

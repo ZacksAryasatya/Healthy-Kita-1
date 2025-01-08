@@ -7,7 +7,7 @@
         <div class="nav-wrapper">
           <nav :class="['nav-list', { show: isMenuOpen }]" aria-label="Main Navigation">
             <router-link to="/home" class="nav-link">Home</router-link>
-            <router-link to="/quiz/:start" class="nav-link">Quiz</router-link>
+            <router-link to="/quiz/start" class="nav-link">Quiz</router-link>
           </nav>
           <button class="menu-toggle" @click="toggleMenu">
             <i class="fas fa-bars"></i>
@@ -54,123 +54,29 @@
         </div>
       </div>
     </header>
-    <main class="ranking">
-        <div class="ranking-container">
-        <h2 class="ranking-title">Top 10 Users</h2>
-        <table class="ranking-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>User</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="top-user">
-                    <td>#1</td>
-                    <td>
-                        <div class="top-user-info">
-                            <img class="top-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Top User Avatar">
-                            <span class="top-user-name">User</span>
-                        </div>
-                    </td>
-                    <td>387</td>
-                </tr>
-                <tr>
-                    <td>#2</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">JamalTebet</span>
-                        </div>
-                    </td>
-                    <td>362</td>
-                </tr>
-                <tr>
-                    <td>#3</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">BudiDoremi</span>
-                        </div>
-                    </td>
-                    <td>315</td>
-                </tr>
-                <tr>
-                    <td>#4</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ujang</span>
-                        </div>
-                    </td>
-                    <td>279</td>
-                </tr>
-                <tr>
-                    <td>#5</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Toto Jaksel</span>
-                        </div>
-                    </td>
-                    <td>263</td>
-                </tr>
-                <tr>
-                    <td>#6</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Burung PIpit</span>
-                        </div>
-                    </td>
-                    <td>217</td>
-                </tr>
-                <tr>
-                    <td>#7</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Iwan Bengkel</span>
-                        </div>
-                    </td>
-                    <td>#150</td>
-                </tr>
-                <tr>
-                    <td>#8</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ilham Bensin</span>
-                        </div>
-                    </td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>#9</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Zaki INdomi</span>
-                        </div>
-                    </td>
-                    <td>90</td>
-                </tr>
-                <tr>
-                    <td>#10</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Bintang kejora</span>
-                        </div>
-                    </td>
-                    <td>60</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="content">
+        <div class="warning-text">
+            <div class="warn-icon">
+                <span><i class="fa-solid fa-triangle-exclamation"></i></span><span class="warn-icon-text">Peringatan</span>
+                
+            </div>
+               <p>Maaf, Jawab kuis lama Anda terlebih dahulu</p>
+            </div>
+        <div class="quiz-card">
+           
+    <div class="information-text">
+      <p>Ketika anda memulai memencet tombol ini maka sistem akan mengirimkan pertanyaan yang relevan untuk audit ringan psikologis sederhana. Pertanyaan ini tidak bisa menggantikan psikologis professional tetapi sebagai introspeksi kecil tentang kesehatan anda</p>
     </div>
-    </main>
-    
+    <div class="options">
+      <router-link to="/quiz"><button class="option">Start Quiz</button></router-link>
+    </div>
+
+  </div>
+    </div>
+    <!-- <div class="btn-next-container">
+    <button class="btn-next">-></button>
+  </div>
+     -->
       </div>
     </body>
   </template>
@@ -221,7 +127,6 @@ export default {
 
     
   <style scoped>
-
 * {
   margin: 0;
   padding: 0;
@@ -234,15 +139,18 @@ body {
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+ 
 }
 
 /* Navbar */
 .navbar {
   background-color: #188754;
-  padding: 2rem 0;
-  position: sticky;
+  padding: 1rem 2rem;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar .container {
@@ -331,7 +239,7 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 13px;
+  margin-top: 20px;
   pointer-events: none;
 }
 
@@ -399,6 +307,8 @@ body {
   background-color: #f1f1f1;
 }
 
+
+/* Stats Section */
 .profile-stats {
   display: flex;
   justify-content: space-around;
@@ -419,85 +329,89 @@ body {
   font-size: 14px;
   color: #999;
 }
+.content {
+    position: relative;
+  padding-top: 23px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
 
-.ranking-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+.quiz-card {
+    position: relative;
+  background-color: #188754;
+  color: white;
+  width: 90%;
+  max-width: 600px;
+  padding: 60px;
+  padding-bottom: 30px;
+  padding-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  margin-top: 50px;
+}
 
-        .ranking-title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+.information-text {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
 
-        .ranking-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-        .ranking-table th,
-        .ranking-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+.option {
+  background-color: white;
+  color: #188754;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
-        .ranking-table th {
-            /* background-color: #007bff; */
-            color: black;
-            font-weight: bold;
+.option:hover {
+  background-color: #002699;
+  color: white;
+  transform: scale(1.05);
+}
 
-        }
+.warning-text {
+    position: absolute; 
+  top: 50px;
+  text-align: center; 
+  background-color: red; 
+ 
+  font-size: 1.2rem;
+  z-index: 10;
+border-radius: 10px;
+color: white;
+padding: 30px 20px;
 
-        .ranking-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
 
-        .top-user {
-            background-color: #ffc107;
-            font-weight: bold;
-        }
+}
+.warning-text p{
+    margin-top: 15px;
+    margin-bottom: -5px;
+}
+.warn-icon{
+    height: 20px;
+    font-weight: 40px;
+    margin-top: -10px;
 
-        .top-user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .top-user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .top-user-name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .avg-user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .avg-user-avatar {
-            width:40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .avg-user-name {
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
+}
+.warn-icon-text{
+    margin-left: 10px;
+    font-weight: bold;
+}
 
 @keyframes fadeInSlideDown {
             from {
@@ -511,7 +425,47 @@ body {
             }
         }
 
-@media (max-width: 768px) {
+/* Media Queries */
+@media (max-width: 941px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #188754;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeInSlideDown 0.3s ease-in-out forwards;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .profile-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details .profile-picture {
+    margin-bottom: 20px;
+
+  }
+}
+@media (max-width: 941px) {
   .container {
     flex-direction: row; 
     align-items: center; 
@@ -536,7 +490,7 @@ body {
         z-index: 100;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        animation: fadeInSlideDown 0.3s ease-in-out forwards;
+        
     }
 
     .nav-list.show {
@@ -568,9 +522,70 @@ body {
         margin-left: 0;
     }
     .dropdown-menu{
-        margin-top: 13px;
+        margin-top: 20px;
     }
 }
+@media (max-width: 768px) {
+  .quiz-card {
+    width: 95%; 
+    padding: 25px; 
+    padding-top: 39px;
+    font-size: 0.9rem; 
+  }
+
+  .question-number {
+    width: 40px; 
+    height: 40px;
+    font-size: 0.8rem; 
+    margin-top: -8px;
+  }
+
+  .question-text {
+    font-size: 1rem; 
+    line-height: 1.4; 
+  }
+
+  .options {
+    gap: 10px; 
+  }
+
+  .option {
+    font-size: 0.9rem; 
+    padding: 10px 40px; 
+  }
+  
+}
+
+@media (max-width: 480px) {
+  .quiz-card {
+    width: 100%; 
+    padding: 20px; 
+    padding-top: 30px;
+    margin: 20px;
+  }
+
+  .question-number {
+    width: 35px;
+    height: 35px;
+    font-size: 0.75rem;
+  }
+
+  .question-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .options {
+    gap: 8px;
+  }
+
+  .option {
+    font-size: 0.8rem;
+    padding: 9px 30px;
+  }
+  
+}
+
 .navbar {
     background-color: #188754;
     padding: 1rem 0;
@@ -578,6 +593,5 @@ body {
     top: 0;
     z-index: 100;
 }
-
   </style>  
   

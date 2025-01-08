@@ -59,52 +59,25 @@
             </header>
 
             <div class="container1">
-                <h1>Ubah Profil</h1>
-                <div class="profile-header">
-                    <div class="profile-image">
-                        <img :src="profileImage" alt="Foto Profil" id="profile-preview" />
-                        <span v-if="profileImage === defaultProfileImage" class="photo-placeholder"></span>
-                    </div>
-                    <div class="profile-info">
-                        <input v-model="username" type="text" id="username" placeholder="Nama Panggilan" />
-                        <input v-model="fullName" type="text" id="nama-lengkap" placeholder="Nama Lengkap" />
-                    </div>
-                    <div class="profile-actions">
-                        <label for="hitam" class="file-label">
-                            <button class="chg-btn">Ganti Foto</button>
-                        </label>
-                        <button class="chg-btn remove">Hapus Foto</button>
-                    </div>
-                </div>
-                <input type="file" name="hitam" id="hitam" />
-
-                <br>
-                <br>
-                
+                <h1>Posting</h1>
                 <div class="container2">
-                    <label for="bio">Deskripsi</label>
-                    <textarea v-model="bio" id="bio" placeholder="Deskripsimu..."></textarea>
+                    <label for="judul">Judul</label>
+                    <textarea v-model="judul" id="judul" placeholder="Judul..."></textarea>
                 </div>
-
-                <div class="container3">
-                    <label for="gender">Jenis Kelamin</label>
-                    <select v-model="gender" id="gender">
-                        <option value="prefer">Tidak Ingin Memberitahukan</option>
-                        <option value="laki-laki">Laki-laki</option>
-                        <option value="perempuan">Perempuan</option>
-                    </select>
+                <br>
+                <div class="container2">
+                    <label for="deskripsi">Deskripsi</label>
+                    <textarea v-model="deskripsi" id="deskripsi" placeholder="Deskripsimu..."></textarea>
                 </div>
-
+                <br>
+                <div class="container2">
+                    <label for="link">Link</label>
+                    <textarea v-model="link" id="link" placeholder="Unggah Link..."></textarea>
+                </div>
+                <br>
                 <button class="btn-apply" @click="applyChanges">Terapkan</button>
 
-                <div id="photoModal" v-if="isModalOpen" class="modal" @click.self="closeModal">
-                    <div class="modal-content">
-                        <button @click="triggerFileInput">Unggah Foto</button>
-                        <button @click="removePhoto" class="red">Hapus Foto Saat Ini</button>
-                        <button @click="closeModal">Batal</button>
-                        <input type="file" ref="fileInput" @change="uploadPhoto" hidden />
-                    </div>
-                </div>
+                
             </div>  
         </div>
     </body>
@@ -115,14 +88,7 @@ export default {
     data() {
         return {
             isProfileDropdownOpen: false,
-            isMenuOpen: false,
-            isModalOpen: false,
-            profileImage: require('/src/assets/download (1).jpg'),
-            defaultProfileImage: require('/src/assets/download (1).jpg'),
-            username: '',
-            fullName: '',
-            bio: '',
-            gender: 'prefer'
+            judul: '',
         };
     },
     methods: {
@@ -138,32 +104,12 @@ export default {
         closeModal() {
             this.isModalOpen = false;
         },
-        triggerFileInput() {
-            this.$refs.fileInput.click();
-        },
-        uploadPhoto(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    this.profileImage = e.target.result;
-                    this.closeModal();
-                };
-                reader.readAsDataURL(file);
-            }
-        },
-        removePhoto() {
-            this.profileImage = this.defaultProfileImage;
-            this.closeModal();
-        },
+       
         applyChanges() {
-            // Simpan perubahan ke server atau lakukan tindakan lain di sini
             console.log('Perubahan diterapkan:', {
-                username: this.username,
-                fullName: this.fullName,
-                bio: this.bio,
-                gender: this.gender,
-                profileImage: this.profileImage
+                judul: this.judul,
+                deskripsi:this.deskripsi,
+                link:this.link,
             });
         }
     }

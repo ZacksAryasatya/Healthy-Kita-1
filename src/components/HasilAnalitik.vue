@@ -54,52 +54,107 @@
         </div>
       </div>
     </header>
-    <div class="content">
-        <div class="quiz-card">
-    <div class="question-number">
-      <span>1 / 13</span>
-    </div>
-    <div class="question-text">
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, saepe explicabo, asperiores earum debitis dicta voluptatum sed quos itaque provident commodi mollitia veritatis tenetur voluptates, quo necessitatibus! Mollitia, rerum deleniti.</p>
-    </div>
-    <div class="options">
-      <button class="option">A. lorem</button>
-      <button class="option">B. lorem</button>
-      <button class="option">C. lorem</button>
-      <button class="option">D. lorem</button>
-    </div>
-
-    <div class="btn-next-container">
-        <button class="btn-next"><i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-    </div>
-  </div>
-    </div>
-    <!-- <div class="btn-next-container">
-    <button class="btn-next">-></button>
-  </div>
-     -->
+        <main class="profile-container">
+          <div class="header">
+            <div class="user-info">
+              <div class="toggle-container">
+                <label class="toggle-label">
+                  
+                <input type="checkbox" class="toggle-switch" />
+                <span>Aktifkan Label Dukungan</span>
+                
+                </label>
+                </div>
+              <div class="settings-dropdown">
+                <button class="settings-button" @click="toggleSettingsDropdown">
+                  <i class="fas fa-cog"></i>
+                </button>
+                <div v-if="isSettingsDropdownOpen" class="dropdown-content1">
+                  <a href="/profile/settings" class="dropdown-item1">Edit profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <img :src="require('/src/assets/download (1).jpg')" alt="Logo" class="profile-picture" />
+            <div class="user-bio">
+                <span class="username">Nama Panggilan</span>
+                
+              <span class="full-name">Nama Lengkap</span>
+              <span class="bio-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ea officiis omnis culpa magni maxime dolor.
+              </span>
+            </div>
+          </div>
+          <div class="profile-stats">
+            <div class="stat">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Post</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2</span>
+              <span class="stat-label">Following</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">1</span>
+              <span class="stat-label">Ranking</span>
+            </div>
+          </div>
+          <div class="tabs">
+            <div class="tab active-posts">Hasil Analitik</div>
+            <div class="tab active"><router-link to="/profile/:username">POSTS</router-link></div>
+            <div class="tab active"><router-link to="/draft">DRAFT</router-link></div>
+          </div>
+          <div class="posts-section">
+            <div class="tweet-card">
+    <div class="tweet-header">
+      <div class="tweet-title">
+        <span class="handle">@User</span>
+        <span class="time">· 21h</span>
       </div>
+    </div>
+    <div class="tweet-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cum vero eum nisi sapiente repudiandae quos, voluptatem adipisci neque, atque doloribus suscipit alias assumenda facilis, eius ipsum? Asperiores, eum adipisci. <span class="hashtag">#ANJAY</span></p>
+    </div>
+    
+  </div>
+          </div>
+          <div class="post-button-container">
+      <button class="post-button">Post</button>
+    </div>
+        </main>
+      </div>
+
+      
     </body>
   </template>
-  
-  
   <script>
 export default {
   data() {
     return {
       isProfileDropdownOpen: false,
       isMenuOpen: false,
+      isSettingsDropdownOpen: false,
     };
   },
   methods: {
     toggleProfileDropdown() {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+     
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
+    toggleSettingsDropdown() {
+      this.isSettingsDropdownOpen = !this.isSettingsDropdownOpen;
+    },
     handleClickOutside(event) {
       const profileDropdown = this.$el.querySelector(".user-profile");
+      const settingsDropdown = this.$el.querySelector(".settings-dropdown");
       const menuDropdown = this.$el.querySelector(".nav-wrapper");
       if (
         profileDropdown &&
@@ -107,6 +162,13 @@ export default {
         this.isProfileDropdownOpen
       ) {
         this.isProfileDropdownOpen = false;
+      }
+      if (
+        settingsDropdown &&
+        !settingsDropdown.contains(event.target) &&
+        this.isSettingsDropdownOpen
+      ) {
+        this.isSettingsDropdownOpen = false;
       }
       if (
         menuDropdown &&
@@ -128,30 +190,81 @@ export default {
 
     
   <style scoped>
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+.user-info{
+  
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.toggle-container {
+  flex-direction: row; /* Pastikan selalu horizontal */
+  align-items: center; /* Vertikal rata tengah */
+  justify-content: flex-start; /* Rata kiri */
+}
 
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  margin-top: -3px;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  margin-left: 630px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch:checked {
+  background-color: #188754;
+}
+
+.toggle-switch:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch:checked:before {
+  transform: translateX(20px);
+}
 body {
   background-color: #F5FFFA;
   color: black;
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
   overflow-x: hidden;
- 
 }
 
 /* Navbar */
 .navbar {
   background-color: #188754;
-  padding: 1rem 2rem;
-  position: fixed;
+  padding: 2rem 0;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .navbar .container {
@@ -220,6 +333,7 @@ body {
   object-fit: cover;
   margin-left: 30px;        
   transition: transform 0.3s ease;
+  
 }
 
 .profile-picture:hover {
@@ -308,7 +422,89 @@ body {
   background-color: #f1f1f1;
 }
 
+/* Profile Container */
+.profile-container {
+    position: relative;
+  width: 935px;
+  padding: 30px 20px;
+  margin: auto;
+}
 
+.profile-details {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.profile-details .profile-picture {
+  width: 150px;
+  height: 150px;
+  margin-right: 30px;
+}
+
+.user-bio {
+  display: flex;
+  flex-direction: column;
+}
+.username {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.full-name {
+font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.bio-text {
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+.settings-dropdown {
+  position: absolute;
+  display: inline-block;
+  top: 30px;
+  right: 10px;
+}
+
+.settings-button {
+    background: none;
+  border: none;
+  color: #188754;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dropdown-content1 {
+    position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 10;
+  min-width: 150px;
+  animation: fadeInSlideDown 0.3s ease-in-out forwards;
+}
+.dropdown-item1{
+    padding: 10px;
+  color: #188754;
+  text-decoration: none;
+  border-radius: 5px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item1:hover {
+  background-color: #188754;
+  color: white;
+}
 /* Stats Section */
 .profile-stats {
   display: flex;
@@ -330,99 +526,127 @@ body {
   font-size: 14px;
   color: #999;
 }
-.content {
-  padding-top: 80px; 
+
+/* Tabs Section */
+.tabs {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
+  justify-content: space-around;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 30px;
 }
 
-.quiz-card {
-  background-color: #188754;
-  color: white;
-  width: 90%;
-  max-width: 600px;
-  padding: 60px;
-  padding-bottom: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  position: relative;
-}
-
-.question-number {
-  background-color: #ffffff30;
-  color: white;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
+.tab {
+  padding: 10px 0;
   font-weight: bold;
-  position: absolute;
-  top: 17px;
-  left: 50%;
-  transform: translateX(-50%);
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  
+}
+.tab a{
+  text-decoration: none;
+  color: black;
+}
+.tab.active-posts {
+  
+  border-bottom: 2px solid black;
+  transform: scale(1.09);
+  
+}
+.tab.active {
+  
+  transition: transform 0.3s ease-in-out ;
+ 
+}
+.tab.active:hover {
+    border-bottom: 2px solid black;
+    transform: scale(1.09);
 }
 
-.question-text {
-  margin: 20px 0;
-  font-size: 1.2rem;
+/* Posts Section */
+.posts-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.post-image {
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.post-image:hover {
+  transform: scale(1.05);
+}
+.tweet-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+ 
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.title-user {
+  font-weight: bold;
+  margin-right: 6px;
+  font-size: large;
+}
+
+
+.handle {
+  color: #888;
+  margin-right: 6px;
+}
+
+.time {
+  color: #888;
+}
+
+.tweet-content {
+  font-size: 16px;
   line-height: 1.5;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.option {
-  background-color: white;
-  color: #188754;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
+.hashtag {
+  color: #1d9bf0;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+}
+.post-button-container {
+  text-align: center;
+  margin-top: 20px;
+
 }
 
-.option:hover {
-  background-color: #002699;
-  color: white;
-  transform: scale(1.05);
-}
-
-.btn-next-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.btn-next {
+.post-button {
+  padding: 10px 40px;
+  font-size: 16px;
+  
+  font-weight: bold;
   background-color: #188754;
-  color: white;
+  color: #ffffff;
   border: none;
-  padding: 10px 30px;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s, color 0.3s ease;
 }
 
-.btn-next:hover {
-  background-color: #002699;
-  transform: scale(1.05);
+.post-button:hover {
+  background-color: #32c362;
+  transform: scale(1.1);
+  color: black;
 }
-
-
-
 @keyframes fadeInSlideDown {
             from {
                 opacity: 0;
@@ -434,8 +658,6 @@ body {
                 transform: translateY(0);
             }
         }
-
-/* Media Queries */
 @media (max-width: 941px) {
   .container {
     flex-direction: column;
@@ -473,6 +695,27 @@ body {
   .profile-details .profile-picture {
     margin-bottom: 20px;
 
+  }
+  .settings-button{
+    margin-right: 15px;
+    margin-top: -5px;
+    
+  }
+
+  .toggle-container {
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .toggle-label {
+    margin-top: 0; 
+    gap: 10px; 
+  }
+
+  .toggle-switch {
+    position: fixed;
+    margin-left: 200px; 
   }
 }
 @media (max-width: 941px) {
@@ -535,67 +778,6 @@ body {
         margin-top: 20px;
     }
 }
-@media (max-width: 768px) {
-  .quiz-card {
-    width: 95%; 
-    padding: 25px; 
-    padding-top: 39px;
-    font-size: 0.9rem; 
-  }
-
-  .question-number {
-    width: 40px; 
-    height: 40px;
-    font-size: 0.8rem; 
-    margin-top: -8px;
-  }
-
-  .question-text {
-    font-size: 1rem; 
-    line-height: 1.4; 
-  }
-
-  .options {
-    gap: 10px; 
-  }
-
-  .option {
-    font-size: 0.9rem; 
-    padding: 8px 15px; 
-  }
-  
-}
-
-@media (max-width: 480px) {
-  .quiz-card {
-    width: 100%; 
-    padding: 20px; 
-    padding-top: 30px;
-    margin: 20px;
-  }
-
-  .question-number {
-    width: 35px;
-    height: 35px;
-    font-size: 0.75rem;
-  }
-
-  .question-text {
-    font-size: 0.9rem;
-    line-height: 1.3;
-  }
-
-  .options {
-    gap: 8px;
-  }
-
-  .option {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-  
-}
-
 .navbar {
     background-color: #188754;
     padding: 1rem 0;

@@ -3,30 +3,35 @@
         <div class="card shadow-sm" style="width: 24rem; border-radius: 50px;">
             <div class="card-body">
                 <h3 class="card-title text-center mb-4">Register</h3>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Nama Lengkap</label>
-                        <input type="text" id="name" class="form-control" name="username" placeholder="Masukkan nama mu" v-model="userData.username"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Alamat Email</label>
-                        <input type="email" id="email" class="form-control"
-                            placeholder="emailmu@example.com" name="email" v-model="userData.email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" id="password" class="form-control"
-                            placeholder="Masukkan Password" name="password" v-model="userData.password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
-                        <input type="password" id="confirmPassword" class="form-control"
-                            placeholder="Konfirmasi Password" name="confirmpw" v-model="userData.confirmpw" required>
-                    </div>
-                    <button type="submit" class="btn btn-success w-100 animate" @click="registerData" :disabled="loading">Register</button>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama Lengkap</label>
+                    <input type="text" id="name" class="form-control" name="username" placeholder="Masukkan nama mu" v-model="userData.username"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Alamat Email</label>
+                    <input type="email" id="email" class="form-control"
+                        placeholder="emailmu@example.com" name="email" v-model="userData.email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control"
+                        placeholder="Masukkan Password" name="password" v-model="userData.password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+                    <input type="password" id="confirmPassword" class="form-control"
+                        placeholder="Konfirmasi Password" name="confirmpw" v-model="userData.confirmpw" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100 animate" @click="registerData" :disabled="loading">Register</button>
                 <div class="text-center mt-3">
+                    <!-- Ikon Google -->
+                    <div class="text-center">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-google"></i></a>
+                    </div>
+                    <!-- Login -->
                     <p id="login1">Sudah punya akun? </p><router-link to="/login"
-                            class="text-success text-decoration-none" id="login">Login disini</router-link>
+                        class="text-success text-decoration-none" id="login">Login disini</router-link>
                 </div>
             </div>
             <div v-if="loading" class="text-center">
@@ -41,7 +46,6 @@
 <script>
 import axios from 'axios';
 import textFile from '!!raw-loader!./file.txt';
-let arr;
 export default {
     name: 'RegisterPage',
     data() {
@@ -92,35 +96,6 @@ export default {
                     confirmpw: ""
                 };
                 this.loading = false;  // Stop loading when request is successful
-
-                const encKeyFetch = await axios.get(`${arr}/oauth/encKey/get`,{
-                withCredentials: true
-                });
-                const encKey = encKeyFetch.data.encKey;
-                const ivKey = encKeyFetch.data.ivKey;
-                const dbRequest = indexedDB.open('userKeysDB', 1);
-
-                dbRequest.onupgradeneeded = (event) => {
-                    let db = event.target.result;
-                    if (!db.objectStoreNames.contains('keys')) {
-                        db.createObjectStore('keys', { keyPath: 'id' });
-                    }
-                };
-                dbRequest.onsuccess = (event) => {
-                    const db = event.target.result;
-                    const transaction = db.transaction('keys', 'readwrite');
-                    const store = transaction.objectStore('keys');
-                    store.put({ id: 'encKey', value: encKey });
-                    store.put({ id: 'ivKey', value: ivKey });
-                    transaction.oncomplete = () => {
-                        console.log('encKey and ivKey stored successfully');
-                    };
-                };
-
-        dbRequest.onerror = (event) => {
-            console.error('Error on opening IndexedDB:', event.target.error);
-        };
-
             })
             .catch((error) => {
                 console.log(error);
@@ -167,5 +142,3 @@ export default {
     transform: scale(0.95);
 }
 </style>
-
-

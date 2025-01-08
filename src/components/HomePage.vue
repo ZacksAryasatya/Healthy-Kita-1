@@ -6,9 +6,8 @@
         <p class="brand">HealthyKita.</p>
         <div class="nav-wrapper">
           <nav :class="['nav-list', { show: isMenuOpen }]" aria-label="Main Navigation">
-            <a href="/home" class="nav-link">Home</a>
-            <a href="/quiz" class="nav-link">Quiz</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <router-link to="/home" class="nav-link">Home</router-link>
+            <router-link to="/quiz/:start" class="nav-link">Quiz</router-link>
           </nav>
           <button class="menu-toggle" @click="toggleMenu">
             <i class="fas fa-bars"></i>
@@ -43,11 +42,11 @@
                     </div>
                   </div>
                   <div class="dropdown-divider"></div>
-                  <a href="/profile/:username" class="dropdown-item">Profil</a>
+                  <router-link to="/profile/:username" class="dropdown-item">Profil</router-link>
                   <div class="dropdown-divider"></div>
-                  <a href="/rank" class="dropdown-item">Daftar Ranking</a>
+                  <router-link to="/rank" class="dropdown-item">Daftar Ranking</router-link>
                   <div class="dropdown-divider"></div>
-                  <a href="/login" class="dropdown-item">Logout</a>
+                  <router-link to="/login" class="dropdown-item">Logout</router-link>
                 </div>
               </div>
             </div>
@@ -127,10 +126,6 @@
   </script>
   
   <style scoped>
-  @import url(https://fonts.googleapis.com);
-  @import url(https://fonts.gstatic.com);
-  @import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap);
-  @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css );
    * {
             margin: 0;
             padding: 0;

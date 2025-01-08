@@ -54,123 +54,73 @@
         </div>
       </div>
     </header>
-    <main class="ranking">
-        <div class="ranking-container">
-        <h2 class="ranking-title">Top 10 Users</h2>
-        <table class="ranking-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>User</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="top-user">
-                    <td>#1</td>
-                    <td>
-                        <div class="top-user-info">
-                            <img class="top-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Top User Avatar">
-                            <span class="top-user-name">User</span>
-                        </div>
-                    </td>
-                    <td>387</td>
-                </tr>
-                <tr>
-                    <td>#2</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">JamalTebet</span>
-                        </div>
-                    </td>
-                    <td>362</td>
-                </tr>
-                <tr>
-                    <td>#3</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">BudiDoremi</span>
-                        </div>
-                    </td>
-                    <td>315</td>
-                </tr>
-                <tr>
-                    <td>#4</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ujang</span>
-                        </div>
-                    </td>
-                    <td>279</td>
-                </tr>
-                <tr>
-                    <td>#5</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Toto Jaksel</span>
-                        </div>
-                    </td>
-                    <td>263</td>
-                </tr>
-                <tr>
-                    <td>#6</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Burung PIpit</span>
-                        </div>
-                    </td>
-                    <td>217</td>
-                </tr>
-                <tr>
-                    <td>#7</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Iwan Bengkel</span>
-                        </div>
-                    </td>
-                    <td>#150</td>
-                </tr>
-                <tr>
-                    <td>#8</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ilham Bensin</span>
-                        </div>
-                    </td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>#9</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Zaki INdomi</span>
-                        </div>
-                    </td>
-                    <td>90</td>
-                </tr>
-                <tr>
-                    <td>#10</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Bintang kejora</span>
-                        </div>
-                    </td>
-                    <td>60</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="notifications-wrapper">
+        <div class="notifications">
+        <h1 class="title">Notifications</h1>
+
+        <!-- Yesterday -->
+        <div class="section">
+            <div class="notification-item">
+                <div class="text">
+                    <strong>geenzxz, zadenhub</strong> and <strong>10 others</strong> liked your photo. <span class="time">1d</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- This Week -->
+        <div class="section">
+            <h2 class="section-title">Yesterday</h2>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>k_photographs10</strong> started following you. <span class="time">2d</span> <span class="date-time">11:30 PM</span>
+                </div>
+                
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>prometheus.zk, renjesaldama</strong> and <strong>scorpionwwr</strong> liked your story. <span class="time">3d</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>websitemontana</strong> started following you. <span class="time">3d</span> <span class="date-time">11:30 PM</span>
+                </div>
+                
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>symphoniemonoton</strong> and <strong>arsyasven</strong> liked your photo. <span class="time">4d</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>ven.draw_, arsyasven</strong> and <strong>26 others</strong> liked your photo. <span class="time">6d</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- This Month -->
+        <div class="section">
+            <div class="notification-item">
+                <div class="text">
+                    <strong>andighudzamir</strong> liked your story. <span class="time">1w</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>zadenhub, azraenits</strong> and <strong>11 others</strong> liked your photo. <span class="time">1w</span> <span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="text">
+                    <strong>andighudzamir, renjesaldama</strong> liked your story. <span class="time">1w</span><span class="date-time">11:30 PM</span>
+                </div>
+            </div>
+        </div>
     </div>
-    </main>
+    </div>
     
+   
       </div>
     </body>
   </template>
@@ -234,15 +184,18 @@ body {
   font-family: 'Quicksand', sans-serif;
   height: 100vh;
   overflow-x: hidden;
+ 
 }
 
 /* Navbar */
 .navbar {
   background-color: #188754;
   padding: 2rem 0;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .navbar .container {
@@ -331,7 +284,7 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 13px;
+  margin-top: 20px;
   pointer-events: none;
 }
 
@@ -399,6 +352,8 @@ body {
   background-color: #f1f1f1;
 }
 
+
+/* Stats Section */
 .profile-stats {
   display: flex;
   justify-content: space-around;
@@ -419,85 +374,78 @@ body {
   font-size: 14px;
   color: #999;
 }
+.notifications-wrapper {
 
-.ranking-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  padding: 20px; 
+}
+.notifications {
+    width: 600px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
 
-        .ranking-title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
 
-        .ranking-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+.section {
+    margin-bottom: 20px;
+}
 
-        .ranking-table th,
-        .ranking-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+.section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: black;
+}
 
-        .ranking-table th {
-            /* background-color: #007bff; */
-            color: black;
-            font-weight: bold;
+.notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #188754;
+    border: 1px solid #e6e6e6;
+    color: white;
+    position: relative;
+}
 
-        }
+.notification-item .text {
+    font-size: 14px;
+}
 
-        .ranking-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+.notification-item .text strong {
+    color: white;
+}
 
-        .top-user {
-            background-color: #ffc107;
-            font-weight: bold;
-        }
-
-        .top-user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .top-user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .top-user-name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .avg-user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        .avg-user-avatar {
-            width:40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .avg-user-name {
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
+.notification-item .time {
+    color: white;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.notification-item .date-time {
+  margin-left: 110px;
+  font-size: medium;
+  color: white;
+  position: absolute;
+    right: 10px; /* Jarak dari tepi kanan */
+    top: 50%;
+    transform: translateY(-50%); /* Untuk memposisikan di tengah vertikal */
+    font-size: medium;
+    color: white;
+ 
+}
 
 @keyframes fadeInSlideDown {
             from {
@@ -511,7 +459,47 @@ body {
             }
         }
 
-@media (max-width: 768px) {
+@media (max-width: 941px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #188754;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeInSlideDown 0.3s ease-in-out forwards;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .profile-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details .profile-picture {
+    margin-bottom: 20px;
+
+  }
+
+}
+@media (max-width: 941px) {
   .container {
     flex-direction: row; 
     align-items: center; 
@@ -536,7 +524,7 @@ body {
         z-index: 100;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        animation: fadeInSlideDown 0.3s ease-in-out forwards;
+        
     }
 
     .nav-list.show {
@@ -568,7 +556,7 @@ body {
         margin-left: 0;
     }
     .dropdown-menu{
-        margin-top: 13px;
+        margin-top: 20px;
     }
 }
 .navbar {
@@ -578,6 +566,5 @@ body {
     top: 0;
     z-index: 100;
 }
-
   </style>  
   

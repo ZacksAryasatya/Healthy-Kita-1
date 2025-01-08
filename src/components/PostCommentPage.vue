@@ -54,123 +54,85 @@
         </div>
       </div>
     </header>
-    <main class="ranking">
-        <div class="ranking-container">
-        <h2 class="ranking-title">Top 10 Users</h2>
-        <table class="ranking-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>User</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="top-user">
-                    <td>#1</td>
-                    <td>
-                        <div class="top-user-info">
-                            <img class="top-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Top User Avatar">
-                            <span class="top-user-name">User</span>
-                        </div>
-                    </td>
-                    <td>387</td>
-                </tr>
-                <tr>
-                    <td>#2</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">JamalTebet</span>
-                        </div>
-                    </td>
-                    <td>362</td>
-                </tr>
-                <tr>
-                    <td>#3</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">BudiDoremi</span>
-                        </div>
-                    </td>
-                    <td>315</td>
-                </tr>
-                <tr>
-                    <td>#4</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ujang</span>
-                        </div>
-                    </td>
-                    <td>279</td>
-                </tr>
-                <tr>
-                    <td>#5</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Toto Jaksel</span>
-                        </div>
-                    </td>
-                    <td>263</td>
-                </tr>
-                <tr>
-                    <td>#6</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Burung PIpit</span>
-                        </div>
-                    </td>
-                    <td>217</td>
-                </tr>
-                <tr>
-                    <td>#7</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Iwan Bengkel</span>
-                        </div>
-                    </td>
-                    <td>#150</td>
-                </tr>
-                <tr>
-                    <td>#8</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Ilham Bensin</span>
-                        </div>
-                    </td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>#9</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Zaki INdomi</span>
-                        </div>
-                    </td>
-                    <td>90</td>
-                </tr>
-                <tr>
-                    <td>#10</td>
-                    <td>
-                        <div class="avg-user-info">
-                            <img class="avg-user-avatar" :src="require('/src/assets/download (1).jpg')" alt="Avg User Avatar">
-                            <span class="avg-user-name">Bintang kejora</span>
-                        </div>
-                    </td>
-                    <td>60</td>
-                </tr>
-            </tbody>
-        </table>
+    <main class="content">
+        <div class="tweet">
+    <div class="tweet-header">
+      <div class="profile-pic">
+        <img src="https://via.placeholder.com/50" alt="Profile Picture">
+      </div>
+      <div class="user-info">
+        <span class="name">Username<i class="fa-solid fa-hand-holding-medical verified-icon"></i></span>
+        <span class="username">@USername</span>
+      </div>
     </div>
+    <div class="tweet-content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span class="hashtag">#SEHAT</span></p>
+    </div>
+    <div class="tweet-footer">
+      <span class="date-time">11:30 PM · 21/03/2030 · 987K Views</span>
+    </div>
+    <div class="tweet-actions">
+      <div class="action">
+        <i class="fa-solid fa-comment"></i> 45K
+      </div>
+      <div class="action">
+        <i class="fas fa-heart"></i> 91K
+      </div>
+      <div class="action">
+        <i class="fas fa-share"></i> 
+      </div>
+    </div>
+    <div class="comment-section">
+      <div class="comment-input-wrapper">
+        <input type="text" class="comment-input" placeholder="Add a comment..." v-model="newComment">
+        <button class="post-btn" @click="postComment">
+            Post
+        </button>
+      </div>
+    </div>
+    <div class="tweet-header2">
+      <div class="profile-pic2">
+        <img src="https://via.placeholder.com/50" alt="Profile Picture">
+      </div>
+      <div class="user-info2">
+        <span class="name2">Username<i class="fa-solid fa-hand-holding-medical verified-icon2"></i></span>
+        <span class="username2">@USername</span>
+      </div>
+    </div>
+    <div class="tweet-content2">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span class="hashtag">#SEHAT</span></p>
+    </div>
+    <div class="tweet-footer2">
+      <span class="date-time2">11:30 PM · 21/03/2030 · 987K Views</span>
+    </div>
+    <div class="tweet-actions2">
+      <div class="action2">
+        <i class="fas fa-heart"></i> 91K
+      </div>
+    </div>
+    <div class="tweet-header2">
+      <div class="profile-pic2">
+        <img src="https://via.placeholder.com/50" alt="Profile Picture">
+      </div>
+      <div class="user-info2">
+        <span class="name2">Username<i class="fa-solid fa-hand-holding-medical verified-icon2"></i></span>
+        <span class="username2">@USername</span>
+      </div>
+    </div>
+    <div class="tweet-content2">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span class="hashtag">#SEHAT</span></p>
+    </div>
+    <div class="tweet-footer2">
+      <span class="date-time2">11:30 PM · 21/03/2030 · 987K Views</span>
+    </div>
+    <div class="tweet-actions2">
+      <div class="action2">
+        <i class="fas fa-heart"></i> 91K
+      </div>
+    </div>
+        </div>
     </main>
-    
+   
       </div>
     </body>
   </template>
@@ -331,7 +293,7 @@ body {
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
-  margin-top: 13px;
+  margin-top: 20px;
   pointer-events: none;
 }
 
@@ -399,6 +361,8 @@ body {
   background-color: #f1f1f1;
 }
 
+
+/* Stats Section */
 .profile-stats {
   display: flex;
   justify-content: space-around;
@@ -420,84 +384,270 @@ body {
   color: #999;
 }
 
-.ranking-container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+/* Tweet Section */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  box-sizing: border-box;
+  margin-top: 45px;
+  margin-bottom: 50px;
+}
 
-        .ranking-title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+.tweet {
+  /* background-color: #fff;
+  
+  border-radius: 10px;
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  width: 60%; 
+  max-width: 700px;
+  height: 700px;
+  max-height: 1000px;
+  border: 1px solid #e1e8ed;
+  margin: 20px auto; 
+  padding: 20px;
+ 
+  background-color: white; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  font-size: 1.1rem; 
+  line-height: 1.6; 
+}
 
-        .ranking-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+.tweet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-        .ranking-table th,
-        .ranking-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
+.profile-pic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
 
-        .ranking-table th {
-            /* background-color: #007bff; */
-            color: black;
-            font-weight: bold;
+.user-info .name {
+  font-weight: bold;
+  font-size: 16px;
+}
 
-        }
+.user-info .verified-icon {
+  color: #188754;
+  font-size: 14px;
+  margin-left: 10px;
+}
 
-        .ranking-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+.user-info .username {
+  display: block;
+  font-size: 14px;
+  color: #657786;
+}
 
-        .top-user {
-            background-color: #ffc107;
-            font-weight: bold;
-        }
+.tweet-content p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: #14171a;
+}
 
-        .top-user-info {
-            display: flex;
-            align-items: center;
-        }
+.hashtag {
+  color: #1DA1F2;
+  cursor: pointer;
+}
 
-        .top-user-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .top-user-name {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
+.date-time {
+  display: block;
+  font-size: 12px;
+  color: #657786;
+  margin-top: 10px;
+  border-top: 1px solid #e1e8ed;
+  padding-top: 10px;
+}
 
-        .avg-user-info {
-            display: flex;
-            align-items: center;
-        }
+.tweet-actions {
+  display: flex;
+ border-bottom: 1px solid #e1e8ed;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
 
-        .avg-user-avatar {
-            width:40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-        }
-        .avg-user-name {
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
+.action {
+  display: flex;
+  align-items: center;
+  color: #657786;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.action i {
+  margin-right: 5px;
+}
+
+.action:hover {
+  color: #1DA1F2;
+}
+
+/* Comment */
+
+/* Tweet Section */
+.tweet2 {
+  /* background-color: #fff;
+  
+  border-radius: 10px;
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  width: 60%; 
+  max-width: 700px;
+  height: 500px;
+  border: 1px solid #e1e8ed;
+  margin: 20px auto; 
+  padding: 20px;
+  background-color: white; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  font-size: 1.1rem; 
+  line-height: 1.6; 
+}
+
+.tweet-header2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-pic2 img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.user-info2 .name2 {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.user-info2 .verified-icon2 {
+  color: #188754;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.user-info2 .username2 {
+  display: block;
+  font-size: 10px;
+  color: #657786;
+}
+
+.tweet-content2 p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #14171a;
+}
+
+.hashtag2 {
+  color: #1DA1F2;
+  cursor: pointer;
+}
+
+.date-time2 {
+  display: block;
+  font-size: 12px;
+  color: #657786;
+  margin-top: 10px;
+  border-top: 1px solid #e1e8ed;
+  padding-top: 10px;
+}
+
+.tweet-actions2 {
+  display: flex;
+ border-bottom: 1px solid #e1e8ed;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+.action2 {
+  display: flex;
+  align-items: center;
+  color: #657786;
+  cursor: pointer;
+  margin-right: 20px;
+  margin-left: 3px;
+}
+
+.action2 i {
+  margin-right: 5px;
+}
+
+.action2:hover {
+  color: #1DA1F2;
+}
+
+/* Comment Input */
+.comment-section {
+  margin-top: 13px;
+  margin-top: 3px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.comment-input-wrapper {
+ display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #f5f8fa;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+
+.comment-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: transparent;    
+}
+
+.post-btn {
+    background-color: #188754; 
+  color: white; 
+  padding: 8px 20px; 
+  border-radius: 20px; 
+  font-size: 0.9rem; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+  margin-left: 10px;
+}
+
+.post-btn:hover {
+    background-color: #145a40; 
+    transform: scale(1.05); 
+}
+.post-btn:active {
+  transform: scale(0.95); 
+}
+.comment-input::placeholder {
+  color: #657786;
+}
+
+.non-comment-text{
+    margin-top: 60px;
+    text-align: center;
+}
 
 @keyframes fadeInSlideDown {
             from {
@@ -511,7 +661,47 @@ body {
             }
         }
 
-@media (max-width: 768px) {
+@media (max-width: 941px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #188754;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    animation: fadeInSlideDown 0.3s ease-in-out forwards;
+  }
+
+  .nav-list.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .profile-container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .profile-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details .profile-picture {
+    margin-bottom: 20px;
+
+  }
+
+}
+@media (max-width: 941px) {
   .container {
     flex-direction: row; 
     align-items: center; 
@@ -536,7 +726,7 @@ body {
         z-index: 100;
         padding: 1rem;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        animation: fadeInSlideDown 0.3s ease-in-out forwards;
+        
     }
 
     .nav-list.show {
@@ -568,7 +758,7 @@ body {
         margin-left: 0;
     }
     .dropdown-menu{
-        margin-top: 13px;
+        margin-top: 20px;
     }
 }
 .navbar {
@@ -578,6 +768,5 @@ body {
     top: 0;
     z-index: 100;
 }
-
   </style>  
   

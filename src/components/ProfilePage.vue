@@ -6,9 +6,8 @@
         <p class="brand">HealthyKita.</p>
         <div class="nav-wrapper">
           <nav :class="['nav-list', { show: isMenuOpen }]" aria-label="Main Navigation">
-            <a href="/home" class="nav-link">Home</a>
-            <a href="/quiz" class="nav-link">Quiz</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <router-link to="/home" class="nav-link">Home</router-link>
+            <router-link to="/quiz/start" class="nav-link">Quiz</router-link>
           </nav>
           <button class="menu-toggle" @click="toggleMenu">
             <i class="fas fa-bars"></i>
@@ -43,9 +42,11 @@
                     </div>
                   </div>
                   <div class="dropdown-divider"></div>
-                  <a href="/rank" class="dropdown-item">Daftar Ranking</a>
+                  <router-link to="/profile/:username" class="dropdown-item">Profil</router-link>
                   <div class="dropdown-divider"></div>
-                  <a href="/login" class="dropdown-item">Logout</a>
+                  <router-link to="/rank" class="dropdown-item">Daftar Ranking</router-link>
+                  <div class="dropdown-divider"></div>
+                  <router-link to="/login" class="dropdown-item">Logout</router-link>
                 </div>
               </div>
             </div>
@@ -56,7 +57,14 @@
         <main class="profile-container">
           <div class="header">
             <div class="user-info">
-              
+              <div class="toggle-container">
+                <label class="toggle-label">
+                  
+                <input type="checkbox" class="toggle-switch" />
+                <span>Aktifkan Label Dukungan</span>
+                
+                </label>
+                </div>
               <div class="settings-dropdown">
                 <button class="settings-button" @click="toggleSettingsDropdown">
                   <i class="fas fa-cog"></i>
@@ -71,6 +79,7 @@
             <img :src="require('/src/assets/download (1).jpg')" alt="Logo" class="profile-picture" />
             <div class="user-bio">
                 <span class="username">Nama Panggilan</span>
+                
               <span class="full-name">Nama Lengkap</span>
               <span class="bio-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto ea officiis omnis culpa magni maxime dolor.
@@ -96,17 +105,32 @@
             </div>
           </div>
           <div class="tabs">
-            <div class="tab active">POSTS</div>
+            <div class="tab active"><router-link to="/analisis">Hasil Analitik</router-link></div>
+            <div class="tab active-posts">POSTS</div>
+            <div class="tab active"><router-link to="/draft">DRAFT</router-link></div>
           </div>
-          <div class="posts-section">
-            <img :src="require('/src/assets/download (1).jpg')" alt="Post Image" class="post-image" />
+          <div class="posts-section" >
+            <div class="tweet-card" >
+              
+    <div class="tweet-header">
+      <div class="tweet-title">
+        <span class="title-user">Title</span>
+        <span class="handle">@User</span>
+        <span class="time">· 21h</span>
+      </div>
+    </div>
+    <div class="tweet-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error cum vero eum nisi sapiente repudiandae quos, voluptatem adipisci neque, atque doloribus suscipit alias assumenda facilis, eius ipsum? Asperiores, eum adipisci. <span class="hashtag">#ANJAY</span></p>
+    </div>
+    
+  </div>
           </div>
         </main>
       </div>
+
+      
     </body>
   </template>
-  
-  
   <script>
 export default {
   data() {
@@ -119,6 +143,7 @@ export default {
   methods: {
     toggleProfileDropdown() {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+     
     },
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
@@ -164,17 +189,66 @@ export default {
 
     
   <style scoped>
- @import url(https://fonts.googleapis.com);
-@import url(https://fonts.gstatic.com);
-@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap);
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css);
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+.user-info{
+  
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.toggle-container {
+  flex-direction: row; /* Pastikan selalu horizontal */
+  align-items: center; /* Vertikal rata tengah */
+  justify-content: flex-start; /* Rata kiri */
+}
 
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  margin-top: -3px;
+}
+
+.toggle-switch {
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 20px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+  margin-left: 630px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch:checked {
+  background-color: #188754;
+}
+
+.toggle-switch:before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch:checked:before {
+  transform: translateX(20px);
+}
 body {
   background-color: #F5FFFA;
   color: black;
@@ -258,6 +332,7 @@ body {
   object-fit: cover;
   margin-left: 30px;        
   transition: transform 0.3s ease;
+  
 }
 
 .profile-picture:hover {
@@ -466,10 +541,26 @@ font-weight: bold;
   cursor: pointer;
   flex: 1;
   text-align: center;
+  
 }
-
-.tab.active {
+.tab a{
+  text-decoration: none;
+  color: black;
+}
+.tab.active-posts {
+  
   border-bottom: 2px solid black;
+  transform: scale(1.09);
+  
+}
+.tab.active {
+  
+  transition: transform 0.3s ease-in-out ;
+ 
+}
+.tab.active:hover {
+    border-bottom: 2px solid black;
+    transform: scale(1.09);
 }
 
 /* Posts Section */
@@ -491,6 +582,52 @@ font-weight: bold;
 .post-image:hover {
   transform: scale(1.05);
 }
+.tweet-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+ 
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.tweet-title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.title-user {
+  font-weight: bold;
+  margin-right: 6px;
+  font-size: large;
+}
+
+
+.handle {
+  color: #888;
+  margin-right: 6px;
+}
+
+.time {
+  color: #888;
+}
+
+.tweet-content {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.hashtag {
+  color: #1d9bf0;
+  font-weight: bold;
+}
 
 @keyframes fadeInSlideDown {
             from {
@@ -503,7 +640,6 @@ font-weight: bold;
                 transform: translateY(0);
             }
         }
-
 @media (max-width: 941px) {
   .container {
     flex-direction: column;
@@ -548,6 +684,21 @@ font-weight: bold;
     
   }
 
+  .toggle-container {
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .toggle-label {
+    margin-top: 0; 
+    gap: 10px; 
+  }
+
+  .toggle-switch {
+    position: relative;
+    margin-left: 200px; 
+  }
 }
 @media (max-width: 941px) {
   .container {
